@@ -9,7 +9,7 @@ class Game {
 		Game();
 		void create();
 		void playRound();
-		void addPlayer(int numb);
+		void addPlayer(Player p);
 		void createBoard();
 	private:
 		Player * players [8];
