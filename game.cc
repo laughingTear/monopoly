@@ -19,9 +19,12 @@ void Game::create(){
 void Game::playRound(){
 	for (int i(0); i<numPlayer; i++){
 		Player* p = players[i];
-		int val = p->getDiceVal();
-		p->advance(val);
-		cout << p->getName() << " gets " << val << " and moves to " << p->getPosition()->getName() <<"\n";
+		do {
+			
+			int val = p->getDiceVal();
+			p->advance(val);
+		} while(p->isPlayAgain());
+
 	}
 }
 
@@ -38,8 +41,16 @@ void Game::createBoard(){
 	squares_ptr[0] = &tmp[0];
 	char buffer[20];
 	for (int i(1); i< 40; i++) {
-		sprintf(buffer, "case %d", i);
-		tmp[i] = Square(buffer);
+		switch(i){
+			case (4):
+				tmp[i] = Square("impot");
+				break;
+			case (39):
+				tmp[i] = Square(" tax de luxe");
+			default:
+				sprintf(buffer, "case %d", i);
+				tmp[i] = Square(buffer);
+		};
 		
 		squares_ptr[i] = &tmp[i];
 		//cout<<(*squares_ptr[i-1]).getName();

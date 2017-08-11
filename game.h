@@ -11,6 +11,7 @@ class Game {
 		void playRound();
 		void addPlayer(Player p);
 		void createBoard();
+
 	private:
 		Player * players [8];
 		int numPlayer;

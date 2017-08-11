@@ -3,13 +3,17 @@
 #include <iostream>
 #include <string>
 #include "square.h"
+
 using namespace std;
+class Game;
 
 class Player {
 	public:
 
 		Player(string name):_name(name){
+			
 			cout <<  _name << " player created\n";
+			_account=50000;
 		};
 
 		string getName();
@@ -20,6 +24,8 @@ class Player {
 		Square* getPosition();
 		int getAccount();
 		void changeAccount(int change);
+		int payTax();
+		bool isPlayAgain();
 
 	private:
 		int d1;
